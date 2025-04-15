@@ -1,0 +1,73 @@
+.list-students-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .list-students-content {
+    display: flex;
+    flex: 1;
+  }
+  
+  .list-students {
+    padding: 2rem;
+    background: var(--bg-color);
+    flex: 1;
+    margin-left: 250px; /* Matches Sidebar width */
+  }
+  
+  .list-students h1 {
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+  }
+  
+  .student-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--card-bg);
+    box-shadow: var(--shadow);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .student-table th, .student-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    color: var(--text-color);
+  }
+  
+  .student-table th {
+    background: var(--primary-color);
+    color: white;
+    font-weight: bold;
+  }
+  
+  .student-table tr:nth-child(even) {
+    background: rgba(0, 0, 0, 0.05);
+  }
+  
+  .student-table tr:hover {
+    background: rgba(0, 123, 255, 0.1);
+  }
+  
+  /* Dark mode */
+  .dark .list-students {
+    background: var(--bg-color);
+  }
+  
+  .dark .student-table {
+    background: var(--card-bg);
+  }
+  
+  .dark .student-table th {
+    background: #111827;
+  }
+  
+  .dark .student-table tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.05);
+  }
+  
+  .dark .student-table tr:hover {
+    background: rgba(96, 165, 250, 0.1);
+  }

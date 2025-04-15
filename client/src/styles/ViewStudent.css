@@ -1,0 +1,467 @@
+/* Define CSS Variables for Consistency */
+:root {
+  --primary-bg: #1e3a8a; /* Deep blue for headers/buttons */
+  --primary-accent: #3b82f6; /* Vibrant blue for highlights */
+  --secondary-accent: #10b981; /* Green for success */
+  --danger: #ef4444; /* Red for errors/close */
+  --text-dark: #1f2937; /* Dark gray for text */
+  --text-light: #ffffff; /* White for contrast */
+  --bg-light: #f9fafb; /* Light gray background */
+  --bg-card: #ffffff; /* White for cards */
+  --shadow: rgba(0, 0, 0, 0.15); /* Subtle shadow */
+  --gradient-primary: linear-gradient(135deg, #1e3a8a, #3b82f6); /* Blue gradient */
+  --gradient-secondary: linear-gradient(135deg, #10b981, #059669); /* Green gradient */
+}
+
+/* Main Container */
+.view-student {
+  padding: 3rem;
+  background: linear-gradient(145deg, #e5e7eb 0%, #d4d4d8 100%);
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  animation: fadeIn 0.8s ease-out;
+}
+
+/* Title */
+.title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--primary-bg);
+  margin-bottom: 3rem;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  animation: bounceIn 1s ease-out;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Search Container */
+.search-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin-bottom: 3.5rem;
+  animation: slideUp 0.8s ease-out;
+}
+
+.filters {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  background: var(--bg-card);
+  padding: 1.8rem;
+  border-radius: 15px;
+  box-shadow: 0 6px 20px var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filters:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.filters select,
+.search-input {
+  padding: 1rem 1.5rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  background: var(--bg-light);
+  font-size: 1.1rem;
+  color: var(--text-dark);
+  transition: all 0.4s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  min-width: 180px;
+}
+
+.filters select:hover,
+.search-input:hover {
+  border-color: var(--primary-accent);
+  transform: scale(1.03);
+}
+
+.filters select:focus,
+.search-input:focus {
+  border-color: var(--primary-accent);
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.5);
+  outline: none;
+  transform: scale(1.04);
+}
+
+.fetch-btn {
+  background: var(--gradient-primary);
+  color: var(--text-light);
+  padding: 1rem 2.5rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+}
+
+.fetch-btn:hover {
+  background: linear-gradient(135deg, #3b82f6, #1e3a8a);
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(30, 58, 138, 0.5);
+}
+
+/* Header Row Styling */
+.header-row {
+  display: grid;
+  grid-template-columns: 2fr 2fr 1fr; /* Name, EmailAnimations, Action */
+  gap: 1rem;
+  background: var(--gradient-primary);
+  color: var(--text-light);
+  padding: 1.5rem 2rem;
+  border-radius: 12px 12px 0 0;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  box-shadow: 0 4px 15px var(--shadow);
+  animation: slideInHeader 0.6s ease-out;
+  margin-bottom: 0;
+}
+
+.header-row span {
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+/* Student List as Excel-like Table */
+.student-list {
+  display: grid;
+  grid-template-columns: 2fr 2fr 1fr; /* Match header */
+  gap: 1rem;
+  padding: 0 2rem 2rem 2rem;
+  background: var(--bg-card);
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 6px 20px var(--shadow);
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.student-list > span {
+  padding: 1.4rem;
+  font-size: 1.2rem;
+  color: var(--text-dark);
+  border-bottom: 1px solid #e5e7eb;
+  text-align: center;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+/* Colorful Name Column */
+.student-list > span:nth-child(3n-2) {
+  text-align: left;
+  color: #1d4ed8; /* Vibrant blue */
+  font-weight: 500;
+  background: rgba(59, 130, 246, 0.1);
+}
+
+/* Email Column */
+.student-list > span:nth-child(3n-1) {
+  text-align: center;
+  color: var(--text-dark);
+}
+
+/* Action Column */
+.student-list > span:nth-child(3n) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.student-list > span:hover {
+  background: #f1f5f9;
+  transform: scale(1.01);
+}
+
+.view-btn {
+  background: var(--gradient-secondary);
+  color: var(--text-light);
+  padding: 0.7rem 1.6rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 10px rgba(16, 185, 129, 0.3);
+}
+
+.view-btn:hover {
+  background: linear-gradient(135deg, #059669, #10b981);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(16, 185, 129, 0.5);
+}
+
+/* Error Message */
+.error {
+  color: var(--danger);
+  text-align: center;
+  margin-bottom: 2.5rem;
+  font-size: 1.3rem;
+  font-weight: 500;
+  background: rgba(239, 68, 68, 0.15);
+  padding: 0.8rem;
+  border-radius: 10px;
+  animation: shake 0.5s ease-in-out;
+}
+
+/* Modal Styling - Adjusted with hidden scrolling */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.modal-content {
+  background: linear-gradient(135deg, #bfc0c2 0%, #f0f1f4 100%);
+  padding: 3rem;
+  border-radius: 20px;
+  max-width: 900px;
+  max-height: 85vh;
+  width: 90%;
+  box-shadow: 0 20px 60px rgba(97, 139, 125, 0.6),
+              0 0 30px rgba(255, 255, 255, 0.3) inset;
+  position: relative;
+  animation: popIn 0.6s ease-out;
+  border: 10px solid #6ca2aa;
+  transform: perspective(1000px) translateZ(0);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  /* Changed: Hidden scrolling */
+  overflow-y: scroll;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  display: flex;
+  flex-direction: column;
+}
+/* Changed: Hide scrollbar for Webkit browsers */
+.modal-content::-webkit-scrollbar {
+  display: none;
+}
+.modal-content:hover {
+  transform: perspective(1300px) translateZ(20px);
+  box-shadow: 0 25px 70px rgba(223, 225, 225, 0.7),
+              0 0 40px rgba(255, 255, 255, 0.4) inset;
+}
+
+.close-btn {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  background: var(--danger);
+  color: var(--text-light);
+  border: none;
+}
+
+/* Student Profile - Side-by-side layout */
+.student-profile {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  width: 100%;
+}
+
+/* Profile Image - Left side */
+.profile-image img {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--primary-accent);
+  box-shadow: 0 4px 12px rgba(59,130,246,0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.profile-image img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 18px rgba(59,130,246,0.4);
+}
+
+/* Profile Details - Right side with side-by-side details */
+.profile-details {
+  flex: 1;
+  min-width: 260px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.profile-details h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-bg);
+  margin-bottom: 1.2rem;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.profile-details .contact-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.profile-details .contact-details p {
+  flex: 1;
+  min-width: 200px;
+  font-size: 1.1rem;
+  color: var(--text-dark);
+  margin: 0;
+  line-height: 1.6;
+}
+.profile-details .academic-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.profile-details .academic-details p {
+  flex: 1;
+  min-width: 150px;
+  font-size: 1.1rem;
+  color: var(--text-dark);
+  margin: 0;
+  line-height: 1.6;
+}
+.profile-details p strong {
+  color: var(--primary-bg);
+  font-weight: 600;
+}
+
+/* Attendance Table - No scrolling, fits well */
+.attendance-table {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: var(--bg-light);
+  border-radius: 10px;
+  box-shadow: 0 4px 15px var(--shadow);
+  animation: fadeInUp 0.6s ease-out;
+  width: 100%;
+  /* Changed: Removed max-height and overflow for no scrolling */
+  height: auto; /* Fits content naturally */
+}
+.attendance-table h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--primary-bg);
+  margin-bottom: 0.8rem;
+}
+.attendance-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Enhanced Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateAnimations(0); opacity: 1; }
+}
+
+@keyframes bounceIn {
+  0% { transform: scale(0.8); opacity: 0; }
+  60% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+@keyframes slideInHeader {
+  from { transform: translateX(-20px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-10px); }
+  40%, 80% { transform: translateX(10px); }
+}
+
+@keyframes slideUpModal {
+  from { transform: translateY(50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes popIn {
+  0% {
+    transform: perspective(1000px) translateZ(-100px) scale(0.8);
+    opacity: 0;
+  }
+  60% {
+    transform: perspective(1000px) translateZ(30px) scale(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: perspective(1000px) translateZ(0) scale(1);
+    opacity: 1;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .view-student {
+    padding: 1.5rem;
+  }
+
+  .title {
+    font-size: 2.2rem;
+  }
+
+  .search-container {
+    gap: 1.5rem;
+  }
+
+  .filters {
+    padding: 1rem;
+  }
+
+  .filters select,
+  .search-input {
+    min-width: 140px;
+  }
+
+  .header-row,
+  .student-list {
+    padding: 1rem;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .modal-content {
+    padding: 1.5rem;
+    max-width: 95%;
+  }
+
+  .student-profile {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .profile-image img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .profile-details .contact-details,
+  .profile-details .academic-details {
+    flex-direction: column;
+  }
+}

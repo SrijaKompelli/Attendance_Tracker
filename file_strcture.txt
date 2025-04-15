@@ -1,0 +1,265 @@
+🌳 Attendance_tracker/
+
+├── 📂 client/
+
+│   ├── 📂 node_modules/
+
+│   ├── 📂 public/
+
+│   │   ├── 📄 favicon.ico (3870 bytes)
+
+│   │   ├── 📄 index.html (1879 bytes)
+
+│   │   ├── 📄 logo192.png (5347 bytes)
+
+│   │   ├── 📄 logo512.png (9664 bytes)
+
+│   │   ├── 📄 manifest.json (517 bytes)
+
+│   │   ├── 📄 robots.txt (70 bytes)
+
+│   ├── 📂 src/
+
+│   │   ├── 📂 assets/
+
+│   │   ├── 📂 components/
+
+│   │   │   ├── 📄 AdminDashboard.js (1496 bytes)
+
+│   │   │   ├── 📄 AdminProfile.js (4461 bytes)
+
+│   │   │   ├── 📄 AttendanceTable.js (5570 bytes)
+
+│   │   │   ├── 📄 AttendanceView.js (3640 bytes)
+
+│   │   │   ├── 📄 AttentivenessDashboard.js (3151 bytes)
+
+│   │   │   ├── 📄 AttentivityResults.js (3250 bytes)
+
+│   │   │   ├── 📄 CreateFaculty.js (2842 bytes)
+
+│   │   │   ├── 📄 CreateStudent.js (4113 bytes)
+
+│   │   │   ├── 📄 FacultyDashboard.js (4517 bytes)
+
+│   │   │   ├── 📄 FacultyProfile.js (4464 bytes)
+
+│   │   │   ├── 📄 ListFaculty.js (1566 bytes)
+
+│   │   │   ├── 📄 ListStudents.js (1653 bytes)
+
+│   │   │   ├── 📄 Loader.js (157 bytes)
+
+│   │   │   ├── 📄 Login.js (2114 bytes)
+
+│   │   │   ├── 📄 ManageAttendance.js (4426 bytes)
+
+│   │   │   ├── 📄 Navbar.js (990 bytes)
+
+│   │   │   ├── 📄 Profile.js (5928 bytes)
+
+│   │   │   ├── 📄 Sidebar.js (1889 bytes)
+
+│   │   │   ├── 📄 StudentAttentivity.js (5757 bytes)
+
+│   │   │   ├── 📄 StudentDetailsModal.js (3759 bytes)
+
+│   │   │   ├── 📄 StudentForm.js (3612 bytes)
+
+│   │   │   ├── 📄 Toast.js (334 bytes)
+
+│   │   │   ├── 📄 VideoUpload.js (1575 bytes)
+
+│   │   │   ├── 📄 ViewStudent.js (10171 bytes)
+
+│   │   ├── 📂 context/
+
+│   │   │   ├── 📄 AttentivenessContext.js (387 bytes)
+
+│   │   │   ├── 📄 AuthContext.js (1261 bytes)
+
+│   │   │   ├── 📄 ThemeContext.js (0 bytes)
+
+│   │   ├── 📂 styles/
+
+│   │   │   ├── 📄 AdminDashboard.css (2446 bytes)
+
+│   │   │   ├── 📄 AttendanceTable.css (1241 bytes)
+
+│   │   │   ├── 📄 AttendanceView.css (410 bytes)
+
+│   │   │   ├── 📄 AttentivenessDashboard.css (4145 bytes)
+
+│   │   │   ├── 📄 AttentivityResults.css (2349 bytes)
+
+│   │   │   ├── 📄 CreateFaculty.css (2408 bytes)
+
+│   │   │   ├── 📄 FacultyDashboard.css (4691 bytes)
+
+│   │   │   ├── 📄 global.css (884 bytes)
+
+│   │   │   ├── 📄 ListFaculty.css (1301 bytes)
+
+│   │   │   ├── 📄 ListStudents.css (1450 bytes)
+
+│   │   │   ├── 📄 Login.css (2701 bytes)
+
+│   │   │   ├── 📄 ManageAttendance.css (1972 bytes)
+
+│   │   │   ├── 📄 Navbar.css (1672 bytes)
+
+│   │   │   ├── 📄 Profile.css (5545 bytes)
+
+│   │   │   ├── 📄 Sidebar.css (2176 bytes)
+
+│   │   │   ├── 📄 StudentAttentivity.css (3730 bytes)
+
+│   │   │   ├── 📄 StudentDetailsModal.css (8331 bytes)
+
+│   │   │   ├── 📄 StudentForm.css (1794 bytes)
+
+│   │   │   ├── 📄 VideoUpload.css (2918 bytes)
+
+│   │   │   ├── 📄 ViewStudent.css (10943 bytes)
+
+│   │   ├── 📄 App.css (602 bytes)
+
+│   │   ├── 📄 App.js (2518 bytes)
+
+│   │   ├── 📄 App.test.js (254 bytes)
+
+│   │   ├── 📄 index.css (379 bytes)
+
+│   │   ├── 📄 index.js (432 bytes)
+
+│   │   ├── 📄 logo.svg (2632 bytes)
+
+│   │   ├── 📄 reportWebVitals.js (375 bytes)
+
+│   │   ├── 📄 setupTests.js (246 bytes)
+
+│   ├── 📄 package-lock.json (665777 bytes)
+
+│   ├── 📄 package.json (1068 bytes)
+
+│   ├── 📄 README.md (3429 bytes)
+
+├── 📂 flask-backend/
+
+│   ├── 📂 data/
+
+│   │   ├── 📂 processed_frames/
+
+│   │   ├── 📂 snapshots/
+
+│   │   ├── 📂 Uploads/
+
+│   ├── 📂 models/
+
+│   │   ├── 📂 pycache/
+
+│   │   ├── 📄 attentivity_cnn.py (2153 bytes)
+
+│   │   ├── 📄 yolov8.pt (6549796 bytes)
+
+│   │   ├── 📄 yolov8n.pt (6534387 bytes)
+
+│   ├── 📂 static/
+
+│   ├── 📂 utils/
+
+│   │   ├── 📂 pycache/
+
+│   │   ├── 📄 logging.py (240 bytes)
+
+│   │   ├── 📄 video_processor.py (5842 bytes)
+
+│   ├── 📂 venv/
+
+│   ├── 📂 pycache/
+
+│   ├── 📄 app.py (1124 bytes)
+
+│   ├── 📄 flask-backend.log (7553 bytes)
+
+│   ├── 📄 requirements.txt (276 bytes)
+
+│   ├── 📄 run.bat (84 bytes)
+
+│   ├── 📄 run.sh (92 bytes)
+
+│   ├── 📄 video_processor.log (434 bytes)
+
+│   ├── 📄 yolov8n.pt (6534387 bytes)
+
+├── 📂 server/
+
+│   ├── 📂 config/
+
+│   │   ├── 📄 db.js (105 bytes)
+
+│   ├── 📂 controllers/
+
+│   │   ├── 📄 adminController.js (2857 bytes)
+
+│   │   ├── 📄 authController.js (1431 bytes)
+
+│   │   ├── 📄 facultyController.js (8671 bytes)
+
+│   │   ├── 📄 videoController.js (195 bytes)
+
+│   ├── 📂 data/
+
+│   ├── 📂 middleware/
+
+│   │   ├── 📄 authMiddleware.js (534 bytes)
+
+│   │   ├── 📄 upload.js (310 bytes)
+
+│   ├── 📂 models/
+
+│   │   ├── 📄 Attendance.js (0 bytes)
+
+│   │   ├── 📄 Faculty.js (827 bytes)
+
+│   │   ├── 📄 Student.js (1160 bytes)
+
+│   ├── 📂 node_modules/
+
+│   ├── 📂 routes/
+
+│   │   ├── 📄 admin.js (700 bytes)
+
+│   │   ├── 📄 auth.js (191 bytes)
+
+│   │   ├── 📄 faculty.js (1426 bytes)
+
+│   │   ├── 📄 snapshots.js (296 bytes)
+
+│   │   ├── 📄 video.js (300 bytes)
+
+│   ├── 📂 uploads/
+
+│   ├── 📄 .env (82 bytes)
+
+│   ├── 📄 package-lock.json (72811 bytes)
+
+│   ├── 📄 package.json (652 bytes)
+
+│   ├── 📄 seed.js (1144 bytes)
+
+│   ├── 📄 server.js (1464 bytes)
+
+│   ├── 📄 server.log (5343 bytes)
+
+├── 📂 processed_frames/
+
+├── 📂 snapshots/
+
+├── 📂 uploads/
+
+├── 📄 .gitignore (168 bytes)
+
+├── 📄 file_strcture.txt (7611 bytes)
+
+├── 📄 README.md (1948 bytes)

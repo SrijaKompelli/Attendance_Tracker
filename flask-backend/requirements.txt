@@ -1,0 +1,6 @@
+flask==3.0.3
+ultralytics==8.3.0
+opencv-python==4.10.0
+numpy==1.26.4
+mediapipe==0.10.14
+scipy==1.14.1  # Added for distance calculations

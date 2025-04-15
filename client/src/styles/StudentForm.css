@@ -1,0 +1,98 @@
+.student-form-container {
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  max-width: 500px;
+  margin: 0 auto;
+}
+.title{
+  margin-top: 30px;
+  margin-left: 40px;
+}
+.form-title {
+  text-align: center;
+  margin-bottom: 0.3rem;
+  color: var(--text-color);
+  font-size: 1.8rem;
+}
+
+.student-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.student-form input, .student-form select {
+  width: 100%;
+  padding: 0.9rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.student-form input:focus, .student-form select:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+  outline: none;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 0.9rem;
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.submit-btn:hover {
+  background: #218838;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.error {
+  color: #dc3545;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* Animation */
+.animate-form {
+  animation: fadeInUp 0.6s ease-in-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Dark mode */
+.dark .student-form-container {
+  background: var(--card-bg);
+}
+
+.dark .student-form input, .dark .student-form select {
+  background: #4b5563;
+  border-color: #6b7280;
+  color: var(--text-color);
+}
+
+.dark .form-title {
+  color: var(--text-color);
+}

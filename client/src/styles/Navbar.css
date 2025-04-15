@@ -1,0 +1,185 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  background: linear-gradient(90deg, rgba(30, 64, 175, 0.95), rgba(59, 130, 246, 0.95));
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2000;
+  height: 70px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(0px);
+}
+
+/* Transparent navbar when scrolling */
+.navbar.scrolled {
+  background: linear-gradient(90deg, rgba(30, 64, 175, 0.7), rgba(59, 130, 246, 0.7));
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  height: 60px; /* Slightly smaller when scrolled */
+}
+
+.navbar-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.navbar.scrolled .navbar-title {
+  font-size: 1.6rem; /* Slightly smaller when scrolled */
+}
+
+.navbar-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.color-toggle-btn, .logout-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+.color-toggle-btn::before, .logout-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: 0.5s;
+}
+
+.color-toggle-btn:hover::before, .logout-btn:hover::before {
+  left: 100%;
+}
+
+.theme-icon, .logout-icon {
+  transition: transform 0.3s ease;
+}
+
+.color-toggle-btn {
+  background: #10b981; /* Professional green */
+}
+
+.color-toggle-btn:hover {
+  background: #059669;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.color-toggle-btn:hover .theme-icon {
+  transform: rotate(180deg);
+}
+
+.logout-btn {
+  background: #ef4444; /* Professional red */
+}
+
+.logout-btn:hover {
+  background: #dc2626;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.logout-btn:hover .logout-icon {
+  transform: translateX(3px);
+}
+
+/* Button animation when navbar is scrolled */
+.navbar.scrolled .color-toggle-btn,
+.navbar.scrolled .logout-btn {
+  padding: 0.6rem 1.3rem;
+  font-size: 0.95rem;
+}
+
+/* For smaller screens */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 1rem;
+  }
+  
+  .navbar-title {
+    font-size: 1.5rem;
+  }
+  
+  .navbar.scrolled .navbar-title {
+    font-size: 1.3rem;
+  }
+  
+  .color-toggle-btn span, 
+  .logout-btn span {
+    display: none; /* Hide text on small screens */
+  }
+  
+  .color-toggle-btn, 
+  .logout-btn {
+    padding: 0.7rem;
+  }
+  
+  .navbar.scrolled .color-toggle-btn,
+  .navbar.scrolled .logout-btn {
+    padding: 0.6rem;
+  }
+}
+
+/* Dark Mode */
+.dark .navbar {
+  background: linear-gradient(90deg, rgba(31, 41, 55, 0.95), rgba(55, 65, 81, 0.95));
+}
+
+.dark .navbar.scrolled {
+  background: linear-gradient(90deg, rgba(31, 41, 55, 0.7), rgba(55, 65, 81, 0.7));
+}
+
+.dark .color-toggle-btn {
+  background: #34d399; /* Lighter green for contrast */
+}
+
+.dark .color-toggle-btn:hover {
+  background: #10b981;
+}
+
+.dark .logout-btn {
+  background: #f87171; /* Softer red for dark mode */
+}
+
+.dark .logout-btn:hover {
+  background: #ef4444;
+}
+
+/* Subtle animation for navbar appearance */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.navbar {
+  animation: fadeIn 0.5s ease-out;
+}

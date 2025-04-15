@@ -1,0 +1,209 @@
+.faculty-dashboard {
+  display: flex;
+  flex-direction: column; /* Changed to column for Navbar */
+  min-height: 100vh;
+  background: linear-gradient(135deg, #eef2f3 0%, #d1d5db 100%);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: background 0.5s ease;
+}
+
+.faculty-dashboard-content {
+  display: flex;
+  flex: 1;
+  margin-top: 70px; /* Offset for fixed Navbar */
+}
+
+.content {
+  margin-left: 250px;
+  padding: 3rem;
+  flex-grow: 1;
+  background: #ffffff;
+  border-radius: 20px 0 0 20px;
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.content:hover {
+  box-shadow: -15px 0 40px rgba(0, 0, 0, 0.15);
+}
+
+.dashboard-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1e3a8a;
+  text-align: center;
+  margin-bottom: 2rem;
+  background: linear-gradient(to right, #1e3a8a, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.welcome-text {
+  font-size: 1.3rem;
+  color: #4b5563;
+  text-align: center;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.filters {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 3rem;
+  background: #f9fafb;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.filters:hover {
+  transform: translateY(-5px);
+}
+
+.filters select,
+.filters input {
+  padding: 1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  background: #ffffff;
+  font-size: 1rem;
+  color: #374151;
+  min-width: 160px;
+  transition: all 0.3s ease;
+}
+
+.filters select:hover,
+.filters input:hover {
+  border-color: #3b82f6;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.filters select:focus,
+.filters input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+  outline: none;
+}
+
+/* Content Animation */
+.animate-content {
+  animation: scrollUp 0.8s ease-out; /* Applied here too for consistency */
+}
+
+/* Animations */
+.animate-title { animation: bounceIn 1s ease-out; }
+.animate-text { animation: fadeInUp 0.8s ease-out; }
+.animate-filters { animation: slideUp 0.8s ease-out; }
+.animate-input { animation: fadeInUp 0.5s ease-out; }
+
+@keyframes scrollUp {
+  from { transform: translateY(100px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes bounceIn {
+  0% { transform: scale(0.8); opacity: 0; }
+  60% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+@keyframes fadeInUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Alternate Theme (Orange-based) */
+.alt-theme .faculty-dashboard {
+  background: linear-gradient(135deg, #fed7aa 0%, #fdba74 100%);
+}
+
+.alt-theme .content {
+  background: #fff7ed;
+}
+
+.alt-theme .welcome-text {
+  color: #c2410c;
+  background: rgba(255, 247, 237, 0.9);
+}
+
+.alt-theme .filters {
+  background: #ffedd5;
+}
+
+.alt-theme .filters select,
+.alt-theme .filters input {
+  background: #fff7ed;
+  border-color: #fb923c;
+}
+
+.alt-theme .dashboard-title {
+  background: linear-gradient(to right, #ea580c, #f97316);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.attentivity-section {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease;
+}
+
+.attentivity-section:hover {
+  transform: translateY(-5px);
+}
+
+.attentivity-title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #1e3a8a;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.attentivity-filters {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.attentivity-filters select {
+  padding: 0.8rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.8);
+  font-size: 1rem;
+  color: #374151;
+  min-width: 150px;
+  transition: all 0.3s ease;
+}
+
+.attentivity-filters select:hover {
+  border-color: #3b82f6;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.attentivity-filters select:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.4);
+  outline: none;
+}
+
+/* Add to existing animations */
+.animate-attentivity {
+  animation: fadeInUp 0.6s ease-out;
+}

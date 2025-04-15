@@ -1,0 +1,95 @@
+.admin-dashboard-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%); /* Light mode: Soft gray */
+  transition: background 0.5s ease;
+}
+
+.admin-dashboard-content {
+  display: flex;
+  flex: 1;
+  margin-top: 70px;
+}
+
+.admin-dashboard {
+  margin-left: 250px;
+  padding: 3rem;
+  flex-grow: 1;
+  background: #ffffff; /* Light mode: Clean white */
+  border-radius: 20px 0 0 20px;
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+  transition: background 0.5s ease, box-shadow 0.3s ease;
+}
+
+.admin-dashboard:hover {
+  box-shadow: -15px 0 40px rgba(0, 0, 0, 0.15);
+}
+
+.dashboard-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1e40af; /* Light mode: Deep blue */
+  margin-bottom: 2rem;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  background: linear-gradient(to right, #1e40af, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.welcome-text {
+  font-size: 1.3rem;
+  color: #4b5563; /* Light mode: Neutral gray */
+  text-align: center;
+  padding: 0.8rem 1.5rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Content Animation */
+.animate-content {
+  animation: scrollUp 0.8s ease-out;
+}
+
+/* Animations */
+.animate-title { animation: bounceIn 1s ease-out; }
+.animate-text { animation: fadeInUp 0.8s ease-out; }
+
+@keyframes scrollUp {
+  from { transform: translateY(100px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes bounceIn {
+  0% { transform: scale(0.8); opacity: 0; }
+  60% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+@keyframes fadeInUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Dark Mode */
+.dark .admin-dashboard-wrapper {
+  background: linear-gradient(135deg, #1f2937 0%, #374151 100%); /* Dark mode: Deep gray */
+}
+
+.dark .admin-dashboard {
+  background: #2d3748; /* Dark mode: Darker gray */
+}
+
+.dark .welcome-text {
+  color: #d1d5db; /* Dark mode: Light gray */
+  background: rgba(45, 55, 72, 0.9);
+}
+
+.dark .dashboard-title {
+  background: linear-gradient(to right, #60a5fa, #93c5fd); /* Dark mode: Lighter blue */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
