@@ -35,10 +35,16 @@ const Navbar = () => {
 
   return (
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
-      <h1 className="navbar-title">{user?.role === 'admin' ? 'Admin Portal' : 'Faculty Portal'}</h1>
+      <div className="navbar-title">
+        {user?.role === 'admin' ? 'Admin Portal' : 'Faculty Portal'}
+      </div>
+
       <div className="navbar-actions">
-        <button className="color-toggle-btn" onClick={handleColorToggle}>
-          {/* Theme icon that changes based on mode */}
+        <button 
+          className="color-toggle-btn" 
+          onClick={handleColorToggle}
+          aria-label="Toggle color theme"
+        >
           <svg 
             className="theme-icon" 
             width="20" 
@@ -62,9 +68,13 @@ const Navbar = () => {
           </svg>
           <span>Toggle Mode</span>
         </button>
+        
         {user && (
-          <button className="logout-btn" onClick={handleLogout}>
-            {/* Logout icon */}
+          <button 
+            className="logout-btn" 
+            onClick={handleLogout}
+            aria-label="Logout"
+          >
             <svg 
               className="logout-icon" 
               width="20" 
@@ -76,7 +86,7 @@ const Navbar = () => {
               strokeLinecap="round" 
               strokeLinejoin="round"
             >
-              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+              <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"></path>
               <polyline points="16 17 21 12 16 7"></polyline>
               <line x1="21" y1="12" x2="9" y2="12"></line>
             </svg>

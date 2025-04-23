@@ -1,73 +1,191 @@
 .list-faculty-wrapper {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 90vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  transition: background 0.3s ease;
 }
 
 .list-faculty-content {
   display: flex;
   flex: 1;
+  transform: translateX(-20px); /* Slight left shift for main div */
+  transition: transform 0.5s ease-in-out;
 }
 
 .list-faculty {
-  padding: 2rem;
-  background: var(--bg-color);
+  padding: 2.5rem;
   flex: 1;
-  margin-left: 250px; /* Matches Sidebar width */
+  margin-left: 0px; /* Adjusted to match Sidebar width */
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 0.6s ease-out;
+  transition: all 0.3s ease;
 }
 
 .list-faculty h1 {
-  margin-bottom: 1.5rem;
-  color: var(--text-color);
+  margin-bottom: 2rem;
+  color: #1f2937;
+  font-size: 2.25rem;
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+}
+
+.list-faculty h1::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 60%;
+  height: 4px;
+  background: linear-gradient(to right, #3b82f6, #10b981);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.list-faculty h1:hover::after {
+  width: 100%;
 }
 
 .faculty-table {
   width: 100%;
-  border-collapse: collapse;
-  background: var(--card-bg);
-  box-shadow: var(--shadow);
-  border-radius: 8px;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: #ffffff;
+  border-radius: 12px;
   overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.faculty-table th, .faculty-table td {
-  padding: 1rem;
+.faculty-table:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.faculty-table th,
+.faculty-table td {
+  padding: 1.25rem;
   text-align: left;
-  border-bottom: 1px solid #ddd;
-  color: var(--text-color);
+  color: #374151;
+  font-size: 0.95rem;
+  transition: background 0.2s ease;
 }
 
 .faculty-table th {
-  background: var(--primary-color);
-  color: white;
-  font-weight: bold;
+  background: linear-gradient(90deg, #3b82f6, #6366f1);
+  color: #ffffff;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  position: relative;
+}
+
+.faculty-table th::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #ffffff;
+  transition: width 0.3s ease;
+}
+
+.faculty-table th:hover::after {
+  width: 100%;
+}
+
+.faculty-table td {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.faculty-table tr {
+  transition: all 0.3s ease;
 }
 
 .faculty-table tr:nth-child(even) {
-  background: rgba(0, 0, 0, 0.05);
+  background: rgba(243, 244, 246, 0.5);
 }
 
 .faculty-table tr:hover {
-  background: rgba(0, 123, 255, 0.1);
+  background: rgba(59, 130, 246, 0.1);
+  transform: scale(1.01);
+  cursor: pointer;
+}
+
+.faculty-table tr:hover td {
+  color: #1e40af;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Dark mode */
+.dark .list-faculty-wrapper {
+  background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
+}
+
 .dark .list-faculty {
-  background: var(--bg-color);
+  background: rgba(31, 41, 55, 0.95);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.dark .list-faculty h1 {
+  color: #e5e7eb;
+}
+
+.dark .list-faculty h1::after {
+  background: linear-gradient(to right, #60a5fa, #34d399);
 }
 
 .dark .faculty-table {
-  background: var(--card-bg);
+  background: #374151;
 }
 
 .dark .faculty-table th {
-  background: #111827;
+  background: linear-gradient(90deg, #1e40af, #4b5563);
+}
+
+.dark .faculty-table td {
+  color: #d1d5db;
 }
 
 .dark .faculty-table tr:nth-child(even) {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.03);
 }
 
 .dark .faculty-table tr:hover {
-  background: rgba(96, 165, 250, 0.1);
+  background: rgba(96, 165, 250, 0.15);
+}
+
+.dark .faculty-table tr:hover td {
+  color: #93c5fd;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .list-faculty-content {
+    transform: translateX(0);
+  }
+  .list-faculty {
+    margin-left: 0;
+    padding: 1.5rem;
+  }
+  .faculty-table th,
+  .faculty-table td {
+    padding: 0.75rem;
+    font-size: 0.85rem;
+  }
 }

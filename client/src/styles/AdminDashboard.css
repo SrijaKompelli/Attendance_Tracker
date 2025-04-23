@@ -9,11 +9,11 @@
 .admin-dashboard-content {
   display: flex;
   flex: 1;
-  margin-top: 70px;
+  margin-top:10px;
 }
 
 .admin-dashboard {
-  margin-left: 250px;
+  margin-left: 0px;
   padding: 3rem;
   flex-grow: 1;
   background: #ffffff; /* Light mode: Clean white */

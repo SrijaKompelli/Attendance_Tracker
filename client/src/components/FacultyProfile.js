@@ -66,7 +66,7 @@ const FacultyProfile = () => {
     <div className="profile-wrapper animate-profile">
       {/* <Navbar /> */}
       <div className="profile-content">
-        <Sidebar role="faculty" />
+        {/* <Sidebar role="faculty" /> */}
         <div className="profile-container">
           <div className="profile-header animate-header">
             <h1 className="profile-title">Faculty Profile</h1>

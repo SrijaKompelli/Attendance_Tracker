@@ -44,7 +44,6 @@ const CreateStudent = () => {
       <div className="create-student-content">
         <Sidebar role="admin" />
         <div className="create-student">
-          <h1>Create Student</h1>
           <div className="student-form-container animate-form">
             <h2 className="form-title">Add New Student</h2>
             {error && <p className="error">{error}</p>}

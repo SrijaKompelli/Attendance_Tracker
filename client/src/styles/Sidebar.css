@@ -1,58 +1,192 @@
+/* Base Sidebar Styles */
 .sidebar {
-  width: 250px;
-  background: linear-gradient(180deg, #1e3a8a 0%, #3b82f6 100%);
+  width: 280px;
+  background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
   color: white;
-  padding: 2rem 1rem;
+  padding: 1.5rem 0;
   position: fixed;
-  top: 0;
+  top: -25px;
   left: 0;
   height: 100vh;
   box-shadow: 5px 0 20px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* Collapsed state */
+.sidebar.collapsed {
+  width: 70px;
+  padding: 1.5rem 0;
+}
+
+/* Sidebar Header */
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1.5rem;
+  margin-bottom: 2rem;
+  position: relative;
 }
 
 .sidebar-title {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-weight: 700;
-  margin-bottom: 2.5rem;
-  text-align: center;
-  text-transform: uppercase;
+  text-align: left;
   letter-spacing: 1px;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  background: linear-gradient(to right, #ffffff, #e0e7ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
+.sidebar.collapsed .sidebar-title {
+  opacity: 0;
+  width: 0;
+}
+
+/* Toggle Button */
+.sidebar-toggle {
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-toggle:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.05);
+}
+
+.sidebar-toggle.rotated svg {
+  transform: rotate(180deg);
+}
+
+.sidebar-toggle svg {
+  transition: transform 0.3s ease;
+}
+
+/* Floating toggle button (appears when sidebar is collapsed) */
+.sidebar-floating-toggle {
+  position: fixed;
+  top: 8  0px;
+  left: 80px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 999;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateX(-100px);
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+
+.sidebar-floating-toggle.visible {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.sidebar-floating-toggle:hover {
+  background: #1e40af;
+  transform: translateX(0) scale(1.1);
+}
+
+/* Content area */
+.sidebar-content {
+  flex: 1;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 0 0.75rem;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.sidebar-content::-webkit-scrollbar {
+  width: 5px;
+}
+
+.sidebar-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar-content::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+}
+
+/* Navigation Links */
 .sidebar-links {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 .sidebar-item {
-  margin-bottom: 1.2rem;
+  margin-bottom: 0.5rem;
+  opacity: 0;
+  animation: fadeInItem 0.5s ease forwards;
 }
 
 .sidebar-link {
   display: flex;
   align-items: center;
-  padding: 1rem;
+  padding: 0.9rem 1rem;
   color: white;
   text-decoration: none;
   border-radius: 12px;
-  font-size: 1.1rem;
   font-weight: 500;
   position: relative;
   overflow: hidden;
   transition: all 0.3s ease;
+  white-space: nowrap;
 }
 
 .sidebar-icon {
+  width: 24px;
+  height: 24px;
   margin-right: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 1.2rem;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.sidebar-label {
+  transition: opacity 0.2s ease;
+}
+
+.sidebar.collapsed .sidebar-label {
+  opacity: 0;
+  width: 0;
 }
 
 .sidebar-link:hover {
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.15);
   transform: translateX(5px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .sidebar-link::before {
@@ -62,7 +196,7 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.2), transparent);
   transition: all 0.6s ease;
 }
 
@@ -71,41 +205,176 @@
 }
 
 .sidebar-link.active {
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.2);
   font-weight: 600;
-  transform: scale(1.02);
 }
 
-.animate-title {
-  animation: fadeIn 0.6s ease-in-out;
+.sidebar-link.active::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: white;
+  border-radius: 0 4px 4px 0;
 }
 
-.animate-link {
-  animation: slideUp 0.5s ease-in-out forwards;
+/* Animations */
+@keyframes fadeInItem {
+  from { 
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+/* Mobile overlay */
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 990;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  /* backdrop-filter: blur(2px); */
 }
 
-@keyframes slideUp {
-  from { transform: translateY(20px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+.sidebar-overlay.active {
+  opacity: 1;
+  visibility: visible;
 }
 
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  .sidebar {
+    transform: translateX(0);
+  }
+  
+  .sidebar.collapsed {
+    transform: translateX(-280px);
+    width: 280px;
+  }
+  
+  .sidebar.collapsed .sidebar-title,
+  .sidebar.collapsed .sidebar-label {
+    opacity: 1;
+    width: auto;
+  }
+  
+  .sidebar-floating-toggle.visible {
+    left: 20px;
+  }
+}
+
+/* Dark mode */
 .dark .sidebar {
-  background: linear-gradient(180deg, #111827 0%, #374151 100%);
+  background: linear-gradient(135deg, #0f172a 0%, #334155 100%);
 }
 
-.dark .sidebar-link:hover {
+.dark .sidebar-title {
+  background: linear-gradient(to right, #ffffff, #cbd5e1);
+  -webkit-background-clip: text;
+}
+
+.dark .sidebar-toggle {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.dark .sidebar-toggle:hover {
   background: rgba(255, 255, 255, 0.15);
 }
 
-.dark .sidebar-link.active {
-  background: rgba(255, 255, 255, 0.2);
+.dark .sidebar-floating-toggle {
+  background: #2563eb;
 }
 
-.dark .sidebar-link::before {
-  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+.dark .sidebar-floating-toggle:hover {
+  background: #1d4ed8;
+}
+
+.dark .sidebar-link:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.dark .sidebar-link.active {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Fancy animations and visual enhancements */
+.sidebar-link.active {
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.sidebar-link.active::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0) 100%);
+  z-index: 1;
+  animation: shine 2s infinite;
+}
+
+@keyframes shine {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Hover effect for sidebar items */
+.sidebar-item:hover .sidebar-icon {
+  transform: scale(1.2);
+}
+
+/* Add some depth to the entire sidebar */
+.sidebar {
+  position: relative;
+  overflow: hidden;
+}
+
+.sidebar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 10px;
+  height: 100%;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1));
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Subtle hover indicator */
+.sidebar-item {
+  position: relative;
+}
+
+.sidebar-item::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: white;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+  opacity: 0;
+}
+
+.sidebar-item:hover::after {
+  width: 80%;
+  opacity: 0.6;
 }

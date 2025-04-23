@@ -4,7 +4,7 @@
   background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
   border-radius: 16px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-  margin: 30px auto;
+  margin: 70px auto;
   max-width: 600px;
   animation: fadeIn 0.8s ease-out;
 }

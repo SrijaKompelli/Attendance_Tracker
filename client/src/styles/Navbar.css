@@ -12,12 +12,12 @@
   z-index: 2000;
   height: 70px;
   transition: all 0.3s ease;
-  backdrop-filter: blur(0px);
+  backdrop-filter: blur(5px);
 }
 
 /* Transparent navbar when scrolling */
 .navbar.scrolled {
-  background: linear-gradient(90deg, rgba(30, 64, 175, 0.7), rgba(59, 130, 246, 0.7));
+  background: linear-gradient(90deg, rgba(30, 64, 175, 0.8), rgba(59, 130, 246, 0.8));
   backdrop-filter: blur(10px);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   height: 60px; /* Slightly smaller when scrolled */
@@ -31,6 +31,22 @@
   letter-spacing: 1px;
   transition: all 0.3s ease;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.navbar-title::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #ffffff;
+  transition: width 0.3s ease;
+}
+
+.navbar-title:hover::after {
+  width: 100%;
 }
 
 .navbar.scrolled .navbar-title {
@@ -57,6 +73,7 @@
   color: #ffffff;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .color-toggle-btn::before, .logout-btn::before {
@@ -79,11 +96,11 @@
 }
 
 .color-toggle-btn {
-  background: #10b981; /* Professional green */
+  background: linear-gradient(135deg, #10b981, #059669);
 }
 
 .color-toggle-btn:hover {
-  background: #059669;
+  background: linear-gradient(135deg, #059669, #047857);
   transform: translateY(-2px);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
@@ -93,11 +110,11 @@
 }
 
 .logout-btn {
-  background: #ef4444; /* Professional red */
+  background: linear-gradient(135deg, #ef4444, #dc2626);
 }
 
 .logout-btn:hover {
-  background: #dc2626;
+  background: linear-gradient(135deg, #dc2626, #b91c1c);
   transform: translateY(-2px);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
@@ -145,27 +162,27 @@
 
 /* Dark Mode */
 .dark .navbar {
-  background: linear-gradient(90deg, rgba(31, 41, 55, 0.95), rgba(55, 65, 81, 0.95));
+  background: linear-gradient(90deg, rgba(17, 24, 39, 0.95), rgba(31, 41, 55, 0.95));
 }
 
 .dark .navbar.scrolled {
-  background: linear-gradient(90deg, rgba(31, 41, 55, 0.7), rgba(55, 65, 81, 0.7));
+  background: linear-gradient(90deg, rgba(17, 24, 39, 0.8), rgba(31, 41, 55, 0.8));
 }
 
 .dark .color-toggle-btn {
-  background: #34d399; /* Lighter green for contrast */
+  background: linear-gradient(135deg, #34d399, #10b981);
 }
 
 .dark .color-toggle-btn:hover {
-  background: #10b981;
+  background: linear-gradient(135deg, #10b981, #059669);
 }
 
 .dark .logout-btn {
-  background: #f87171; /* Softer red for dark mode */
+  background: linear-gradient(135deg, #f87171, #ef4444);
 }
 
 .dark .logout-btn:hover {
-  background: #ef4444;
+  background: linear-gradient(135deg, #ef4444, #dc2626);
 }
 
 /* Subtle animation for navbar appearance */
@@ -182,4 +199,25 @@
 
 .navbar {
   animation: fadeIn 0.5s ease-out;
+}
+
+/* Button press effect */
+.color-toggle-btn:active, .logout-btn:active {
+  transform: scale(0.97);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Add subtle floating animation to buttons */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-2px); }
+  100% { transform: translateY(0px); }
+}
+
+.navbar-actions button {
+  animation: float 3s ease-in-out infinite;
+}
+
+.navbar-actions button:nth-child(2) {
+  animation-delay: 1.5s;
 }
