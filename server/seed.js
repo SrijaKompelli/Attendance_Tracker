@@ -3,7 +3,9 @@ const bcrypt = require('bcryptjs');
 const Faculty = require('./models/Faculty');
 require('dotenv').config();
 
-mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+// MongoDB connection with hardcoded URI for testing
+const MONGO_URI = 'mongodb://127.0.0.1:27017/presentrack';
+mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(async () => {
     console.log('MongoDB connected');
     const salt = await bcrypt.genSalt(10);
